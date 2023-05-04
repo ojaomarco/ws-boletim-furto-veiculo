@@ -1,0 +1,4 @@
+br\edu\utfpr\td\cotsi\webservice\endpoint\Cliente.class
+br\edu\utfpr\td\cotsi\webservice\JerseyConfig.class
+br\edu\utfpr\td\cotsi\webservice\Main.class
+br\edu\utfpr\td\cotsi\webservice\endpoint\TesteEndPoint.class
