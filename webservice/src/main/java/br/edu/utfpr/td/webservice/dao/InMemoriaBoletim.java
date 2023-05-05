@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.cotsi.webservice.dao;
+package br.edu.utfpr.td.webservice.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import br.edu.utfpr.td.cotsi.webservice.modelos.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 
 @Component
 public class InMemoriaBoletim implements IBoletimDao{
@@ -14,7 +14,7 @@ public class InMemoriaBoletim implements IBoletimDao{
 	@Override
 	public void gravar(BoletimFurtoVeiculo boletim) {
 		boletinsInMemoria.add(boletim);
-		System.out.println("Boletim registrado...");
+		System.out.println("Boletim registrado...");  
 	}
 
 	@Override
@@ -22,11 +22,7 @@ public class InMemoriaBoletim implements IBoletimDao{
 		return null;
 	}
 
-	@Override
-	public void remover(String idBoletim) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<BoletimFurtoVeiculo> lerTodos() {
@@ -37,4 +33,16 @@ public class InMemoriaBoletim implements IBoletimDao{
 		return boletinsInMemoria.stream().filter(bo -> bo.getId() == id).collect(Collectors.toList()).get(0);
 	}
 
+	@Override
+	public void editar(int id, BoletimFurtoVeiculo boletim) {
+		int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
+		boletinsInMemoria.set(posBo, boletim);
+		System.out.println("Boletim editado...");
+	}
+
+	@Override
+	public void remover(int id) {
+		int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
+		boletinsInMemoria.remove(posBo);
+	}
 }

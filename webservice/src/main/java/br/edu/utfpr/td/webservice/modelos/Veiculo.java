@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.cotsi.webservice.modelos;
+package br.edu.utfpr.td.webservice.modelos;
 
 public class Veiculo 
 {

@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.cotsi.webservice;
+package br.edu.utfpr.td.webservice;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -6,7 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 import org.springframework.stereotype.Component;
 
-import br.edu.utfpr.td.cotsi.webservice.endpoint.TesteEndPoint;
+import br.edu.utfpr.td.webservice.endpoint.TesteEndPoint;
 
 @Component
 @ApplicationPath("/webservice")

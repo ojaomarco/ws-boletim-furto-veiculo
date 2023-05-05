@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.cotsi.webservice.regras;
+package br.edu.utfpr.td.webservice.regras;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.edu.utfpr.td.cotsi.webservice.dao.IBoletimDao;
-import br.edu.utfpr.td.cotsi.webservice.modelos.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.webservice.dao.IBoletimDao;
+import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 
 @Component
 public class RegrasBoletim implements IRegrasBoletim
@@ -21,15 +21,13 @@ public class RegrasBoletim implements IRegrasBoletim
 	}
 
 	@Override
-	public void excluirBoletim(BoletimFurtoVeiculo boletim) {
-		// TODO Auto-generated method stub
-		
+	public void excluirBoletim(int id) {
+		boletimDAO.remover(id);		
 	}
 
 	@Override
-	public void alterarBoletim(BoletimFurtoVeiculo boletim) {
-		// TODO Auto-generated method stub
-		
+	public void alterarBoletim(int id, BoletimFurtoVeiculo boletim) {
+		boletimDAO.editar(id, boletim);
 	}
 
 	@Override
