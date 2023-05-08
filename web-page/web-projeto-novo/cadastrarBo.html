@@ -28,7 +28,6 @@
     </nav>
     <div class="container bg-dark ps-5 pe-5" style="height: 100vh;">
         <div class="row text-light">
-            <!-- <div class="text-light" id="dadosContato"> -->
             <div class="col">
                 <h3>Dados da ocorrência</h3>
                 <div class="input-group m-1">
@@ -36,11 +35,11 @@
                     <input type="text" class="form-control form-control-sm" id="data" placeholder="Data">
                 </div>
                 <div class="input-group  m-1">
-                    <div class="input-group-text w-25" >Período</div>
+                    <div class="input-group-text w-25">Período</div>
                     <input type="text" class="form-control form-control-sm" id="periodo" placeholder="Período">
                 </div>
                 <div class="input-group  m-1">
-                    <div class="input-group-text w-25 " >Lograd.</div>
+                    <div class="input-group-text w-25 ">Lograd.</div>
                     <input type="text" class="form-control form-control-sm" id="logradouro" placeholder="Logradouro">
                 </div>
                 <div class="input-group m-1">
@@ -61,28 +60,57 @@
                 </div>
             </div>
 
-
             <div class="col">
                 <h3>Dados do veículo</h3>
-                <label>Placa:</label><input id="placa" type="text"></input><br>
-                <label>Estado:</label><input id="estadoPlaca" type="text"></input><br>
-                <label>Cidade:</label><input id="cidadePlaca" type="text"></input><br>
-                <label>Cor:</label><input id="cor" type="text"></input><br>
-                <label>Marca:</label><input id="marca" type="text"></input><br>
-                <label>Tipo:</label><input id="tipo" type="text"></input><br>
-                <label>Ano:</label><input id="ano" type="text"></input><br>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Placa</div>
+                    <input type="text" class="form-control form-control-sm" id="placa" placeholder="Placa">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Estado</div>
+                    <input type="text" class="form-control form-control-sm" id="estadoPlaca" placeholder="Estado">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Cidade</div>
+                    <input type="text" class="form-control form-control-sm" id="cidadePlaca" placeholder="Cidade">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Cor</div>
+                    <input type="text" class="form-control form-control-sm" id="cor" placeholder="Cor">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Marca</div>
+                    <input type="text" class="form-control form-control-sm" id="marca" placeholder="Marca">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Tipo</div>
+                    <input type="text" class="form-control form-control-sm" id="tipo" placeholder="Tipo">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Ano</div>
+                    <input type="text" class="form-control form-control-sm" id="ano" placeholder="Ano">
+                </div>
                 <br>
             </div>
             <div class="col">
-            <h3>Dados da vítima</h3>
-            <label>Nome:</label><input id="nome" type="text"></input><br>
-            <label>Email:</label><input id="email" type="text"></input><br>
-            <label>Telefone:</label><input id="telefone" type="text"></input><br>
-            <br>
+                <h3>Dados da vítima</h3>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Nome</div>
+                    <input type="text" class="form-control form-control-sm" id="nome" placeholder="Nome">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Email</div>
+                    <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
+                </div>
+                <div class="input-group m-1">
+                    <div class="input-group-text w-25">Telefone</div>
+                    <input type="text" class="form-control form-control-sm" id="telefone" placeholder="Telefone">
+                </div>
+                <br>
             </div>
             <center>
-                <button id="botaoCancelar" onclick="location.href = 'index.html';">Voltar</button>
-                <button id="botaoCadastrar">Cadastrar</button>
+                <button class=" btn btn-danger" id="botaoCancelar" onclick="location.href = 'index.html';">Voltar</button>
+                <button class=" btn btn-primary" id="botaoCadastrar btn btn-primary">Cadastrar</button>
             </center>
             <br><br>
             <div id="resultado"></div>

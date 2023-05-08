@@ -1,13 +1,20 @@
 package br.edu.utfpr.td.webservice.modelos;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 public class BoletimFurtoVeiculo {
 	private int id;
+	@Valid
 	private Date dataOcorrencia;
+	@NotBlank (message = "Periodo não pode estar em branco")
 	private String periodoOcorrencia;
+	@Valid
 	private List<Parte> partes;
+	
 	private Endereco localOcorrencia;
 	private Veiculo veiculoFurtado;
 
