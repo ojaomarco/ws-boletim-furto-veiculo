@@ -39,6 +39,7 @@ public class BoletimEndPoint {
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response cadastrarBO(BoletimFurtoVeiculo boletim) {
 	    List<String> erros = regrasBoletim.validarBoletim(boletim);
 	    if (!erros.isEmpty()) {
@@ -60,10 +61,11 @@ public class BoletimEndPoint {
 	@Path("/{id}")
 	public Response getBoById(@PathParam("id") int id){
 		try {
-			return Response.ok(regrasBoletim.boletimById(id)).build();
+			BoletimFurtoVeiculo bo = regrasBoletim.boletimById(id);
+			return Response.ok(bo).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.NOT_FOUND)
-	                .entity("Boletim não encontrado...")
+	                .entity(e.getMessage())
 	                .build();
 		}
 		
@@ -79,7 +81,7 @@ public class BoletimEndPoint {
 			return Response.ok("Boletim editado...  ").build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.NOT_FOUND)
-	                .entity("Boletim não encontrado...")
+	                .entity(e.getMessage())
 	                .build();
 		}
 	}
@@ -92,7 +94,7 @@ public class BoletimEndPoint {
 			return Response.ok("Boletim deletado...  ").build();
 		} catch (Exception e) {
 			 return Response.status(Response.Status.NOT_FOUND)
-		                .entity("Boletim não encontrado...")
+		                .entity(e.getMessage())
 		                .build();
 		}
 	}

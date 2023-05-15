@@ -1,11 +1,19 @@
 package br.edu.utfpr.td.webservice.modelos;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Veiculo 
-{
+{	@NotNull (message= "ano tem que ser válido")
 	private int anoFabricacao;
+	@NotBlank (message = "Cor do veiculo não pode estar em branco")
 	private String cor;
+	@NotBlank (message = "Marca do veiculo não pode estar em branco")
 	private String marca;
+	@NotBlank (message = "Tipo do veiculo não pode estar em branco")
 	private String tipoVeiculo;
+	@Valid
 	private Emplacamento emplacamento;
 	
 	public int getAnoFabricacao() {

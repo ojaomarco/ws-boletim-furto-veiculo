@@ -1,9 +1,13 @@
 package br.edu.utfpr.td.webservice.modelos;
 
+import javax.validation.constraints.NotBlank;
+
 public class Emplacamento 
-{
+{	@NotBlank (message = "Placa do veiculo não pode estar em branco")
 	private String placa;
+	@NotBlank (message = "UF da placa do veiculo não pode estar em branco")
 	private String estado;
+	@NotBlank (message = "Cidade da placa do veiculo não pode estar em branco")
 	private String cidade;
 	
 	public String getPlaca() {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.webservice.modelos.Veiculo;
+import exceptions.ResourceNotFoundException;
 
 @Component
 public class InMemoriaBoletim implements IBoletimDao{
@@ -25,23 +26,37 @@ public class InMemoriaBoletim implements IBoletimDao{
 	public List<BoletimFurtoVeiculo> lerTodos() {
 		return boletinsInMemoria;
 	}
-
-	public BoletimFurtoVeiculo getById(int id){
-		return boletinsInMemoria.stream().filter(bo -> bo.getId() == id).collect(Collectors.toList()).get(0);
+	
+	public BoletimFurtoVeiculo getById(int id)throws ResourceNotFoundException{
+		try {
+			return boletinsInMemoria.stream().filter(bo -> bo.getId() == id).collect(Collectors.toList()).get(0);
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("Não Encontrado...");
+		}
 	}
 
 	@Override
-	public void editar(int id, BoletimFurtoVeiculo boletim) {
-		int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
-		boletim.setId(id);
-		boletinsInMemoria.set(posBo, boletim);
-		System.out.println("Boletim editado...");
+	public void editar(int id, BoletimFurtoVeiculo boletim) throws ResourceNotFoundException{
+		try {
+			int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
+			boletim.setId(id);
+			boletinsInMemoria.set(posBo, boletim);
+			System.out.println("Boletim editado...");
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("Erro ao editar, boletim não existe...");
+		}
+		
 	}
 
 	@Override
-	public void remover(int id) {
-		int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
-		boletinsInMemoria.remove(posBo);
+	public void remover(int id)throws ResourceNotFoundException{
+		
+		try {
+			int posBo = boletinsInMemoria.indexOf(boletinsInMemoria.stream().filter(a -> a.getId() == id).collect(Collectors.toList()).get(0));
+			boletinsInMemoria.remove(posBo);
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("Erro ao excluir, boletim não encontrado...");
+		}
 	}
 	
 	@Override
@@ -67,5 +82,10 @@ public class InMemoriaBoletim implements IBoletimDao{
 	@Override
 	public List<Veiculo> getVeiculosPorTipo(String tipo) {
 		return veiculosFurtados.stream().filter(v -> v.getTipoVeiculo().equalsIgnoreCase(tipo)).toList();
+	}
+
+	@Override
+	public List<Veiculo> getVeiculos() {
+		return veiculosFurtados;
 	}
 }

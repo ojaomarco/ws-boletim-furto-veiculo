@@ -19,4 +19,5 @@ public interface IBoletimDao {
 	public List<Veiculo> getVeiculosPorCor(String cor);
 	public List<Veiculo> getVeiculosPorPlaca(String placa);
 	public List<Veiculo> getVeiculosPorTipo(String tipo);
+	public List<Veiculo> getVeiculos();
 }

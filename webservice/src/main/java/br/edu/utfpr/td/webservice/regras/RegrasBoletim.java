@@ -1,6 +1,5 @@
 package br.edu.utfpr.td.webservice.regras;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Component;
 import br.edu.utfpr.td.webservice.dao.IBoletimDao;
 import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.webservice.modelos.Veiculo;
+import exceptions.ResourceNotFoundException;
 
 @Component
 public class RegrasBoletim implements IRegrasBoletim
@@ -39,41 +39,14 @@ public class RegrasBoletim implements IRegrasBoletim
 	}
 
 	@Override
-	public BoletimFurtoVeiculo boletimById(int id){
-		if(id<1){
-			return null;
-		}else{
-			return boletimDAO.getById(id);
-		}
+	public BoletimFurtoVeiculo boletimById(int id) throws ResourceNotFoundException{
+		return boletimDAO.getById(id);
 	}
 
 
 	@Override
 	public List<BoletimFurtoVeiculo> listarBoletins() {
 		return boletimDAO.lerTodos();
-	}
-
-	@Override
-	public boolean boletimIsValid(BoletimFurtoVeiculo boletim) {
-		boolean valid = false;
-		try {
-			valid = boTemAtributoNulo(boletim);
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return valid;
-	}
-
-	public boolean emailIsValid(String email){
-		return email.contains("@");
-	}
-
-	public boolean boTemAtributoNulo(Object objeto) throws IllegalAccessException{
-		for (Field campo : objeto.getClass().getDeclaredFields()) {
-			campo.setAccessible(true);
-			if (campo.get(objeto) == null) return true;
-		}
-		return false;
 	}
 
 	@Override
@@ -89,6 +62,7 @@ public class RegrasBoletim implements IRegrasBoletim
 	    for (ConstraintViolation<BoletimFurtoVeiculo> violation : violations) {
 	        erros.add(violation.getMessage());
 	    }
+	    if(!emailIsValid(boletim.getPartes().get(0).getEmail())) erros.add("Email Invalido");
 	    
 	    return erros;
 	}
@@ -111,6 +85,21 @@ public class RegrasBoletim implements IRegrasBoletim
 	@Override
 	public List<Veiculo> veiculosPorTipo(String tipo) {
 		return boletimDAO.getVeiculosPorTipo(tipo);
+	}
+
+	@Override
+	public boolean boletimIsValid(BoletimFurtoVeiculo boletim) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public boolean emailIsValid(String email) {
+		return email.contains("@");
+	}
+
+	@Override
+	public List<Veiculo> listarVeiculos() {
+		return boletimDAO.getVeiculos();
 	}
 	
 }

@@ -14,10 +14,11 @@ public class BoletimFurtoVeiculo {
 	private String periodoOcorrencia;
 	@Valid
 	private List<Parte> partes;
-	
+	@Valid
 	private Endereco localOcorrencia;
+	@Valid
 	private Veiculo veiculoFurtado;
-
+	
 	private static int count = 1;
 	
 	public BoletimFurtoVeiculo(){

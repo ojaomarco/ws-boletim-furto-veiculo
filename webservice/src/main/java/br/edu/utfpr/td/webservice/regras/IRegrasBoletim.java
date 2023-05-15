@@ -21,5 +21,6 @@ public interface IRegrasBoletim
 	public List<Veiculo> veiculosPorCor(String cor);
 	public List<Veiculo> veiculosPorPlaca(String placa);
 	public List<Veiculo> veiculosPorTipo(String tipo);
+	public List<Veiculo> listarVeiculos();
 	
 }

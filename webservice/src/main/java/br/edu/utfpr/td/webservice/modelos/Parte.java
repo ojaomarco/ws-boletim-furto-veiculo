@@ -1,9 +1,15 @@
 package br.edu.utfpr.td.webservice.modelos;
 
+import javax.validation.constraints.NotBlank;
+
 public class Parte {
+	@NotBlank (message = "Nome não pode estar em branco")
 	private String nome;
+	@NotBlank (message = "Email não pode estar em branco")
 	private String email;
+	@NotBlank (message = "Telefone não pode estar em branco")
 	private String telefone;
+	@NotBlank (message = "TipoEnvolvimento não pode estar em branco")
 	private String tipoEnvolvimento;
 	
 	public String getNome() {

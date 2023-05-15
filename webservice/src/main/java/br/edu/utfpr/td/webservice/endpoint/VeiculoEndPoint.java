@@ -23,7 +23,7 @@ public class VeiculoEndPoint {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response listarTodos() {
 		try {
-			return Response.ok(regrasBoletim.listarBoletins()).build();
+			return Response.ok(regrasBoletim.listarVeiculos()).build();
 		} catch (Exception e) {
 	        return Response.serverError().entity(e.getMessage()).build();
 	    }

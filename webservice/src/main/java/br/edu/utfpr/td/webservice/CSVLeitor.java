@@ -19,6 +19,7 @@ import com.opencsv.exceptions.CsvException;
 import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.webservice.modelos.Emplacamento;
 import br.edu.utfpr.td.webservice.modelos.Endereco;
+import br.edu.utfpr.td.webservice.modelos.Parte;
 import br.edu.utfpr.td.webservice.modelos.Veiculo;
 
 @Component
@@ -43,6 +44,14 @@ public class CSVLeitor {
 	        endereco.setCidade(linha[16]);
 	        endereco.setEstado(linha[17]);
 	        boletim.setLocalOcorrencia(endereco);
+	        
+	        ArrayList<Parte> partes = new ArrayList<>();
+	        Parte parte = new Parte();
+	        parte.setEmail("d");
+	        parte.setNome("a");
+	        parte .setTelefone("a");
+	        partes.add(parte);
+	        //boletim.setPartes(partes);
 	        
 	        Emplacamento emplacamento = new Emplacamento();
 	        emplacamento.setCidade(linha[46]);
