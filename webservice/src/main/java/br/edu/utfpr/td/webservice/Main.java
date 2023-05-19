@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.webservice.regras.IRegrasBoletim;
 
-
+@CrossOrigin(origins = "http://localhost")
 @SpringBootApplication
 @ComponentScan("br.edu.utfpr.td.webservice")
 public class Main {

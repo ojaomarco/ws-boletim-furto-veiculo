@@ -10,17 +10,18 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import br.edu.utfpr.td.webservice.modelos.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.webservice.regras.IRegrasBoletim;
 
 @Component
+@CrossOrigin(origins = "*")
 @Path("boletim")
 public class BoletimEndPoint {
 
@@ -76,6 +77,12 @@ public class BoletimEndPoint {
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Path("/{id}")
 	public Response editBoById(@PathParam("id") int id, BoletimFurtoVeiculo boletim){
+		List<String> erros = regrasBoletim.validarBoletim(boletim);
+	    if (!erros.isEmpty()) {
+	        return Response.status(Response.Status.BAD_REQUEST)
+	            .entity(erros)
+	            .build();
+	    }
 		try {
 			regrasBoletim.alterarBoletim(id, boletim);
 			return Response.ok("Boletim editado...  ").build();
@@ -139,17 +146,5 @@ public class BoletimEndPoint {
 	        return Response.serverError().entity(e.getMessage()).build();
 	    }
 	}
-
-	
-	@QueryParam("var2") 
-	private String y;
-	
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("caminho4")	
-	public Response teste4(){
-		return Response.ok(String.format("%s = pathParan %s = queryParam ", id, y)).build();
-	}
-	
 }
 

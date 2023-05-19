@@ -1,4 +1,15 @@
-C:\Users\ivan_\Downloads\webservice\webservice\src\main\java\br\edu\utfpr\td\cotsi\webservice\Main.java
-C:\Users\ivan_\Downloads\webservice\webservice\src\main\java\br\edu\utfpr\td\cotsi\webservice\endpoint\Cliente.java
-C:\Users\ivan_\Downloads\webservice\webservice\src\main\java\br\edu\utfpr\td\cotsi\webservice\JerseyConfig.java
-C:\Users\ivan_\Downloads\webservice\webservice\src\main\java\br\edu\utfpr\td\cotsi\webservice\endpoint\TesteEndPoint.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\dao\IBoletimDao.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\regras\RegrasBoletim.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\modelos\Veiculo.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\dao\InMemoriaBoletim.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\modelos\Emplacamento.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\endpoint\BoletimEndPoint.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\regras\IRegrasBoletim.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\exceptions\ResourceNotFoundException.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\CSVLeitor.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\Main.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\modelos\BoletimFurtoVeiculo.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\modelos\Endereco.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\JerseyConfig.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\modelos\Parte.java
+C:\Users\joau\Desktop\João Marcos\Faculdade\TSI-5-Periodo\Topicos avançados\repositorio-tsi\ws-boletim-furto-veiculo\webservice\src\main\java\br\edu\utfpr\td\webservice\endpoint\VeiculoEndPoint.java

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    
+    <title>Delegacia Eletrônica</title>
+</head>
+
+<body class="bg-dark bg-gradient">
+    <nav class="navbar container navbar-expand-lg bg-secondary">
+        <div class="container ">
+            <a class="navbar-brand text-light" href="index.html">
+                <img src='img/icon-policial.png' width="45" class="d-inline-block " />
+                Delegacia
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ">
+                    <a class=" nav-link text-light btn btn-primary border-start me-2" href="cadastrarBo.html">Cadastrar
+                        B.O.</a>
+                    <a class=" nav-link active text-light btn btn-dark border-start me-2"
+                        href="relatorio.html">Relatório</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="tablea container">
+        <table id="tabelaBos"class="table-dark table-striped table-bordered border-light" border="2" cellspacing="0" cellpadding="6" rules="groups"  width="100%">
+            <thead>
+                <tr>
+                    <th scope="col" class="org-left">Identificador</th>
+                    <th scope="col" style="text-align: center">Data</th>
+                    <th scope="col" class="org-left">Cidade</th>
+                    <th scope="col" class="org-left">Período</th>
+                    <th scope="col" class="org-left">Marca</th>
+                    <th scope="col" class="org-left">Placa</th>
+                    <th scope="col" class="org-left">Cor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+            <span id="loading" class="text-primary">Carregando dados...</span>
+        </table>
+
+    </div>
+    <div class="container bg-dark" style="height: 100vh; display: flex; flex-direction: column;">
+
+
+
+        <div class="row fixed-bottom">
+            <div class="text-light text-center">
+                <span class='header'>Delegacia Eletrônica</span><br>
+                <span class='header'><b>Boletim de Ocorrência </b></span><br>
+                <span class='header'>Controle de Furto de Veículos</span><br>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script>
+    var listarProcessos = function() {
+        request.setRequestHeader('Access-Control-Allow-Origin', '*');
+        request.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        request.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+        $.ajax({
+            url: "http://localhost:8080/delegacia/bo-furto-veiculo",
+            type: 'GET',
+            async: true,
+            contentType: 'application/json',
+            success: function(boletins) {
+                $("#loading").hide();
+                limparTabela();
+                $.each(boletins, function(index, bo) {   
+                        var novaLinha =
+                        '<tr>' +
+                        '<td class="org-left">' + bo.identificador + '</td>' +
+                        '<td style="text-align: center">' + bo.dataOcorrencia + '</td>' +
+                        '<td style="text-align: center">' + bo.localOcorrencia.cidade + '</td>' +
+                        '<td style="text-align: center">' + bo.periodoOcorrencia + '</td>' +
+                        '<td style="text-align: center">' + bo.veiculoFurtado.marca + '</td>' +
+                        '<td style="text-align: center">' + bo.veiculoFurtado.emplacamento.placa + '</td>' +
+                        '<td style="text-align: center">' + bo.veiculoFurtado.cor +'</td>' +
+                        '</tr>';
+                    $("#tabelaBos tr:last").after(novaLinha);
+                });
+            },
+            error: function() {
+    
+            }
+        });
+    };
+    
+    var limparTabela = function() {
+        $("#tabelaBos").find("tr:gt(0)").remove();
+    }
+    
+    var consultar = function(urlContato) {
+        sessionStorage.setItem("urlContato", urlContato);
+        window.location.href = "consulta.html";
+    }
+    
+    $(document).ready(function() {
+        listarProcessos();    
+    });
+</script>
+
+</html>
